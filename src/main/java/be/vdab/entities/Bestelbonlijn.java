@@ -5,9 +5,6 @@ import java.math.BigDecimal;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
@@ -25,7 +22,7 @@ public class Bestelbonlijn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private BestelbonlijnId bestelbonlijnIdid;
+	private BestelbonlijnId bestelbonlijnId;
 
 	@NumberFormat(style = Style.NUMBER)
 	@NotNull
@@ -34,32 +31,22 @@ public class Bestelbonlijn implements Serializable {
 	private BigDecimal prijs;
 	private int aantal;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "bestelbonid")
-	private long bestelbonid;
-
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "bierid")
-	private long bierid;
-
 	public Bestelbonlijn() {
 	}
 
 	public Bestelbonlijn(BigDecimal prijs, int aantal, long bestelbonid, long bierid) {
 		this.prijs = prijs;
 		this.aantal = aantal;
-		this.bestelbonid = bestelbonid;
-		this.bierid = bierid;
-		this.bestelbonlijnIdid.setBestelbonid(bestelbonid);
-		this.bestelbonlijnIdid.setBierid(bierid);
+		this.bestelbonlijnId.setBestelbonid(bestelbonid);
+		this.bestelbonlijnId.setBierid(bierid);
 	}
 
-	public BestelbonlijnId getBestelbonlijnIdid() {
-		return bestelbonlijnIdid;
+	public BestelbonlijnId getBestelbonlijnId() {
+		return bestelbonlijnId;
 	}
 
 	public void setBestelbonlijnIdid(BestelbonlijnId bestelbonlijnIdid) {
-		this.bestelbonlijnIdid = bestelbonlijnIdid;
+		this.bestelbonlijnId = bestelbonlijnIdid;
 	}
 
 	public BigDecimal getPrijs() {
@@ -76,22 +63,6 @@ public class Bestelbonlijn implements Serializable {
 
 	public void setAantal(int aantal) {
 		this.aantal = aantal;
-	}
-
-	public long getBestelbonid() {
-		return bestelbonid;
-	}
-
-	public void setBestelbonid(long bestelbonid) {
-		this.bestelbonid = bestelbonid;
-	}
-
-	public long getBierid() {
-		return bierid;
-	}
-
-	public void setBierid(long bierid) {
-		this.bierid = bierid;
 	}
 
 }

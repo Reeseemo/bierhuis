@@ -12,6 +12,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import be.vdab.entities.Bier;
+import be.vdab.valueobjects.BestelbonlijnId;
 
 @Configuration
 @EnableJpaRepositories
@@ -23,7 +24,7 @@ public class RepositoriesConfig {
 	LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 		factory.setDataSource(dataSource);
-		factory.setPackagesToScan(Bier.class.getPackage().getName());
+		factory.setPackagesToScan(Bier.class.getPackage().getName(), BestelbonlijnId.class.getPackage().getName());
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		adapter.setShowSql(true);
 		factory.setJpaVendorAdapter(adapter);

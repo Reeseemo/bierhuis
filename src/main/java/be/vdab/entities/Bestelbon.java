@@ -1,15 +1,12 @@
 package be.vdab.entities;
 
 import java.io.Serializable;
-import java.util.Collections;
-import java.util.Set;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
 
@@ -34,13 +31,6 @@ public class Bestelbon implements Serializable {
 	@Valid
 	@Embedded
 	private Adres adres;
-
-	@OneToMany(mappedBy = "bestelbonid")
-	private Set<Bestelbonlijn> bestelbonlijnen;
-
-	public Set<Bestelbonlijn> getBestelbonlijnen() {
-		return Collections.unmodifiableSet(bestelbonlijnen);
-	}
 
 	public Bestelbon() {
 	}

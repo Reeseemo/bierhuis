@@ -8,10 +8,14 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class BestelbonlijnId  implements Serializable {
 	
-    @Column(name = "bierid")
-    private long bierid;
+	private static final long serialVersionUID = 1L;
+	@Column(name = "bierid")
+    public long bierid;
     @Column(name = "bestelbonid")
-    private long bestelbonid;
+    public long bestelbonid;
+    
+	public BestelbonlijnId() {}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
