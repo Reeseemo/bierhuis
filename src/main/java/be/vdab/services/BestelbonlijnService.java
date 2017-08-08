@@ -10,4 +10,6 @@ public interface BestelbonlijnService {
 
 	List<Bestelbonlijn> findAll();
 
+	void add(Bestelbonlijn bestelbonlijn); 
+
 }

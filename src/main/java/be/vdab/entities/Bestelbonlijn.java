@@ -3,6 +3,7 @@ package be.vdab.entities;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.PrePersist;
@@ -31,7 +32,9 @@ public class Bestelbonlijn implements Serializable {
 	@NotNull
 	@Min(0)
 	@Digits(integer = 10, fraction = 2)
+    @Column(name = "prijs")
 	private BigDecimal prijs;
+    @Column(name = "aantal")
 	private int aantal;
 
 	public Bestelbonlijn() {

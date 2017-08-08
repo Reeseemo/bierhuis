@@ -14,11 +14,11 @@ import be.vdab.services.BestelbonlijnService;
 
 @Controller
 @RequestMapping("/mandje")
-public class BestelbonController {
+public class BestelbonlijnController {
 	private static final String VIEW = "mandje";
 	private final BestelbonlijnService bestelbonlijnService;
 
-	BestelbonController(BestelbonlijnService bestelbonlijnService) {
+	BestelbonlijnController(BestelbonlijnService bestelbonlijnService) {
 		this.bestelbonlijnService = bestelbonlijnService;
 	}
 
@@ -28,11 +28,12 @@ public class BestelbonController {
 	}
 
 	@PostMapping
-	String create(@Valid Bestelbonlijn bestelbonlijn, BindingResult bindingResult) {
+	String add(@Valid Bestelbonlijn bestelbonlijn, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return VIEW;
 		}
-		bestelbonlijnService.create(bestelbonlijn);
+		
+		bestelbonlijnService.add(bestelbonlijn);
 		return VIEW;
 	}
 

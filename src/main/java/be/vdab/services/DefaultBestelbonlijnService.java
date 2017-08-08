@@ -1,5 +1,6 @@
 package be.vdab.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import be.vdab.repositories.BestelbonlijnRepository;
 public class DefaultBestelbonlijnService implements BestelbonlijnService {
 
 	private final BestelbonlijnRepository bestelbonlijnRepository;
+	private List<Bestelbonlijn> bestelbonlijnen;
 
 	DefaultBestelbonlijnService(BestelbonlijnRepository bestelbonlijnRepository) {
 		this.bestelbonlijnRepository = bestelbonlijnRepository;
@@ -20,12 +22,19 @@ public class DefaultBestelbonlijnService implements BestelbonlijnService {
 	@Override
 	@ModifyingTransactionalServiceMethod
 	public void create(Bestelbonlijn bestelbonlijn) {
-		bestelbonlijnRepository.saveAndFlush(bestelbonlijn);
+		bestelbonlijnRepository.save(bestelbonlijn);
 	}
 
 	@Override
 	public List<Bestelbonlijn> findAll() {
 		return bestelbonlijnRepository.findAll();
+	}
+
+	public void add(Bestelbonlijn bestelbonlijn) {
+		if (bestelbonlijnen == null) {
+			bestelbonlijnen = new ArrayList<>();
+		}
+		bestelbonlijnen.add(bestelbonlijn);
 	}
 
 }
