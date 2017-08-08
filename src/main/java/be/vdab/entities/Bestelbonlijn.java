@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
@@ -24,6 +25,8 @@ public class Bestelbonlijn implements Serializable {
 	@EmbeddedId
 	private BestelbonlijnId bestelbonlijnId;
 
+
+
 	@NumberFormat(style = Style.NUMBER)
 	@NotNull
 	@Min(0)
@@ -32,6 +35,12 @@ public class Bestelbonlijn implements Serializable {
 	private int aantal;
 
 	public Bestelbonlijn() {
+	}
+
+	public Bestelbonlijn(BigDecimal prijs, int aantal, long bierid) {
+		this.prijs = prijs;
+		this.aantal = aantal;
+		this.bestelbonlijnId.setBierid(bierid);
 	}
 
 	public Bestelbonlijn(BigDecimal prijs, int aantal, long bestelbonid, long bierid) {
@@ -45,8 +54,8 @@ public class Bestelbonlijn implements Serializable {
 		return bestelbonlijnId;
 	}
 
-	public void setBestelbonlijnIdid(BestelbonlijnId bestelbonlijnIdid) {
-		this.bestelbonlijnId = bestelbonlijnIdid;
+	public void setBestelbonlijnId(BestelbonlijnId bestelbonlijnId) {
+		this.bestelbonlijnId = bestelbonlijnId;
 	}
 
 	public BigDecimal getPrijs() {
