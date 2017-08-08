@@ -1,0 +1,177 @@
+body {
+	background-color: #F9E79F;
+	color: #6E2C00;
+	font-family: sans-serif;
+}
+
+nav ul li {
+	display: inline;
+	margin-right: 1em;
+	margin-left: 0;
+	text-decoration: underline;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:hover {
+	color: brown;
+	text-decoration: underline;
+}
+
+nav ul li a {
+	text-decoration: underline;
+}
+
+#logoutbutton {
+	background: none;
+	border: none;
+	display: inline;
+	font-size: 1em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	font-weight: lighter;
+}
+
+
+h1 {
+	clear: both;
+}
+
+table, th, td {
+	border: 1px solid silver;
+	border-collapse: collapse;
+}
+
+thead {
+	color: black;
+	background-color: white;
+}
+
+td, th {
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+}
+
+th {
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #ECF0F1;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #F4D03F;
+}
+
+label {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+input, select {
+	display: block;
+	font-size: 1.1em;
+	margin-bottom: 1em;
+	margin-top: 0.2em;
+}
+
+input:focus, textarea:focus, select:focus {
+	background-color: #FFFFD6
+}
+
+input[type='checkbox'], input[type='radio'] {
+	display: inline;
+}
+
+label span, .fout {
+	background-color: red;
+	border-bottom-right-radius: 0.5em;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+	box-shadow: 5px 5px #777777;
+	margin-left: 0.5em;
+	padding: 0.5em;
+	color: white;
+	font-weight: bold;
+}
+
+label span:empty, .fout:empty {
+	display: none;
+}
+
+.zonderbolletjes {
+	list-style: none;
+	margin-bottom: 0.2em;
+	padding: 0;
+}
+
+.zonderbolletjes li {
+	display: inline;
+	margin-right: 0.2em;
+}
+
+.fullwidth {
+	width: 100%;
+}
+
+.knop {
+	text-decoration: none;
+}
+
+@media print {
+	nav {
+		display: none;
+	}
+}
+
+a {
+	color: black;
+}
+
+dt {
+	clear: left;
+	float: left;
+	width: 15em;
+}
+
+dd {
+	margin-left: 15em;
+	font-weight: bold;
+}
+
+blockquote {
+	margin-left: 0;
+	font-style: italic;
+}
+
+#logoutform {
+	display: inline;
+}
+
+@media ( min-width :40em) {
+	.pagineren a {
+		font-weight: bold;
+		color: white;
+		background-color: #641E16;
+		border-bottom-right-radius: 0.5em;
+		border-top-left-radius: 0.5em;
+		border-top-right-radius: 0.5em;
+		padding: 0.4em;
+		text-decoration: none;
+	}
+}
+
+.pagineren a:hover {
+	text-decoration: underline;
+}
