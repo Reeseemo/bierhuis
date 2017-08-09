@@ -22,8 +22,11 @@ public class DefaultBestelbonlijnService implements BestelbonlijnService {
 
 	@Override
 	@ModifyingTransactionalServiceMethod
-	public void create(Bestelbonlijn bestelbonlijn) {
-		bestelbonlijnRepository.save(bestelbonlijn);
+	public void create(long bestelbonId, Map<Long, Bestelbonlijn> bestelbonlijnen) {
+		for (Bestelbonlijn bestelbonlijn : bestelbonlijnen.values()) {
+			bestelbonlijn.getBestelbonlijnId().setBestelbonid(bestelbonId);
+			bestelbonlijnRepository.save(bestelbonlijn);
+		}
 	}
 
 	@Override
@@ -43,5 +46,7 @@ public class DefaultBestelbonlijnService implements BestelbonlijnService {
 	public Map<Long, Bestelbonlijn> getBestelbonlijnen() {
 		return bestelbonlijnen;
 	}
+
+
 
 }

@@ -22,7 +22,7 @@
 			<dt>Brouwer</dt>
 			<dd>${model.brouwer.naam}</dd>
 		</dl>
-		<c:url value='/mandje' var='url' />
+		<c:url value='/mandje/view' var='url' />
 		<form:form action='${url}' 
 		modelAttribute="bestelbonlijn" 
 		id='aantal'>

@@ -33,7 +33,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<c:url value='/bestelbon' var='url' />
+		<c:url value='/mandje/bestelbon' var='url' />
 		<form:form action='${url}' modelAttribute="bestelbon" id='bestelform'>
 			<form:label path='naam'>Naam:<form:errors path='naam' />
 			</form:label>
@@ -66,6 +66,10 @@
 			</script>
 		</form:form>
 
+	</c:if>
+	
+	<c:if test="${empty mandje}">
+	<h3>Uw winkelwagen is leeg</h3>
 	</c:if>
 </body>
 </html>

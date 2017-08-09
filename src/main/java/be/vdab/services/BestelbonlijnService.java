@@ -7,12 +7,13 @@ import be.vdab.entities.Bestelbonlijn;
 
 public interface BestelbonlijnService {
 
-	void create(Bestelbonlijn bestelbonlijn);
 
 	List<Bestelbonlijn> findAll();
 
 	void add(Bestelbonlijn bestelbonlijn);
 
 	Map<Long, Bestelbonlijn> getBestelbonlijnen();
+
+	void create(long id, Map<Long, Bestelbonlijn> bestelbonlijnen); 
 
 }

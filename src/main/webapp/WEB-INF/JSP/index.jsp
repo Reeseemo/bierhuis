@@ -9,7 +9,7 @@
 <body>
 	<v:menu />
 	<h2>Welkom in het huis van de Belgische bieren</h2>
-	<%-- 	<img alt='bieren' src='<c:url value="/images/bierhuis.jpg"/>' class='fullwidth'> --%>
+		<img alt='bieren' src='<c:url value="/images/bierhuis.jpg"/>'>
 	<p>We hebben momenteel ${aantalBieren} bieren</p>
 </body>
 </html>
