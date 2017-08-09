@@ -11,16 +11,30 @@
 	<v:menu />
 	<h2>Winkelwagen</h2>
 	<c:if test="${not empty mandje}">
-		<h1>Brouwers</h1>
+	
 		<table>
-			<tbody>
-				<c:forEach items='${mandje}' var='bestelbonlijn'>
-					<tr>
-						<td>${bestelbonlijn.aantal} </td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		<thead>
+			<tr>
+				<th>Bier</th>
+				<th>Prijs</th>
+				<th>Aantal</th>
+				<th>Te betalen</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items='${mandje}' var='bestelbonlijn'>
+				<tr>
+					<td>${bestelbonlijn.bestelbonlijnId.bierid}</td>
+					<td>${bestelbonlijn.prijs}</td>
+					<td>${bestelbonlijn.aantal}</td>
+					<td>${bestelbonlijn.prijs * bestelbonlijn.aantal}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	
+		<c:url value='/bestelbon' var='url' />
+	<v:bestelbonform url='${url}' knopTekst='Als bestelbon bevestigen' />
 		
 	</c:if>
 </body>

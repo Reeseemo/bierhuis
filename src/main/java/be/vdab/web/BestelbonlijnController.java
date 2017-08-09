@@ -28,13 +28,13 @@ public class BestelbonlijnController {
 	}
 
 	@PostMapping
-	String add(@Valid Bestelbonlijn bestelbonlijn, BindingResult bindingResult) {
+	ModelAndView add(@Valid Bestelbonlijn bestelbonlijn, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-			return VIEW;
-		}
-		
+			return new ModelAndView(VIEW);
+		}		
 		bestelbonlijnService.add(bestelbonlijn);
-		return VIEW;
+		ModelAndView model = new ModelAndView(VIEW, "mandje", bestelbonlijnService.getBestelbonlijnen());
+		return model;
 	}
 
 }

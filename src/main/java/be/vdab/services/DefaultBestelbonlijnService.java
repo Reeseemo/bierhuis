@@ -30,11 +30,18 @@ public class DefaultBestelbonlijnService implements BestelbonlijnService {
 		return bestelbonlijnRepository.findAll();
 	}
 
+	@Override
 	public void add(Bestelbonlijn bestelbonlijn) {
 		if (bestelbonlijnen == null) {
 			bestelbonlijnen = new ArrayList<>();
 		}
 		bestelbonlijnen.add(bestelbonlijn);
 	}
+
+	@Override
+	public List<Bestelbonlijn> getBestelbonlijnen() {
+		return bestelbonlijnen;
+	}
+	
 
 }
