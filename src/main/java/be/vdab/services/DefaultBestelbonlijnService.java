@@ -1,7 +1,8 @@
 package be.vdab.services;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import be.vdab.repositories.BestelbonlijnRepository;
 public class DefaultBestelbonlijnService implements BestelbonlijnService {
 
 	private final BestelbonlijnRepository bestelbonlijnRepository;
-	private List<Bestelbonlijn> bestelbonlijnen;
+	private Map<Long, Bestelbonlijn> bestelbonlijnen;
 
 	DefaultBestelbonlijnService(BestelbonlijnRepository bestelbonlijnRepository) {
 		this.bestelbonlijnRepository = bestelbonlijnRepository;
@@ -33,15 +34,14 @@ public class DefaultBestelbonlijnService implements BestelbonlijnService {
 	@Override
 	public void add(Bestelbonlijn bestelbonlijn) {
 		if (bestelbonlijnen == null) {
-			bestelbonlijnen = new ArrayList<>();
+			bestelbonlijnen = new HashMap<>();
 		}
-		bestelbonlijnen.add(bestelbonlijn);
+		bestelbonlijnen.put(bestelbonlijn.getBestelbonlijnId().getBierid(), bestelbonlijn);
 	}
 
 	@Override
-	public List<Bestelbonlijn> getBestelbonlijnen() {
+	public Map<Long, Bestelbonlijn> getBestelbonlijnen() {
 		return bestelbonlijnen;
 	}
-	
 
 }

@@ -13,20 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import be.vdab.entities.Bestelbonlijn;
-import be.vdab.services.BestelbonlijnService;
 import be.vdab.services.BierService;
 
 @Controller
 @RequestMapping("/bieren")
 public class BierController {
 	private static final String BIER_VIEW = "/bier";
-	private static final String REDIRECT_URL_NA_TOEVOEGEN = "redirect:/mandje";
 	private final BierService bierService;
-	private final BestelbonlijnService bestelbonlijnService;
 
-	public BierController(BierService bierService, BestelbonlijnService bestelbonlijnService) {
+	public BierController(BierService bierService) {
 		this.bierService = bierService;
-		this.bestelbonlijnService = bestelbonlijnService;
 	}
 
 	@GetMapping("{bierid}")

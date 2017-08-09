@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
@@ -26,15 +25,13 @@ public class Bestelbonlijn implements Serializable {
 	@EmbeddedId
 	private BestelbonlijnId bestelbonlijnId;
 
-
-
 	@NumberFormat(style = Style.NUMBER)
 	@NotNull
 	@Min(0)
 	@Digits(integer = 10, fraction = 2)
-    @Column(name = "prijs")
+	@Column(name = "prijs")
 	private BigDecimal prijs;
-    @Column(name = "aantal")
+	@Column(name = "aantal")
 	private int aantal;
 
 	public Bestelbonlijn() {

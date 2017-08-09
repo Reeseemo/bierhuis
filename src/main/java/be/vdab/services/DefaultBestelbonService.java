@@ -21,4 +21,9 @@ public class DefaultBestelbonService implements BestelbonService {
 		bestelbonRepository.save(bestelbon);
 	}
 
+	@Override
+	public Bestelbon read(long id) {
+		return bestelbonRepository.findOne(id);
+	}
+
 }

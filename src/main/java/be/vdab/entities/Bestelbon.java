@@ -2,19 +2,18 @@ package be.vdab.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.SafeHtml;
-
-import be.vdab.valueobjects.Adres;
 
 @Entity
 @Table(name = "bestelbonnen")
@@ -28,20 +27,36 @@ public class Bestelbon implements Serializable {
 	@Length(min = 1, max = 50)
 	@SafeHtml
 	private String naam;
-	@Valid
-	@Embedded
-	private Adres adres;
+	@NotBlank
+	@Length(min = 1, max = 50)
+	@SafeHtml
+	private String straat;
+	@NotBlank
+	@Length(min = 1, max = 50)
+	@SafeHtml
+	private String huisNr;
+	@NotBlank
+	@Length(min = 1, max = 50)
+	@SafeHtml
+	private String gemeente;
+	@NotNull
+	@Min(1000)
+	@Max(9999)
+	private int postcode;
 
 	public Bestelbon() {
 	}
 
-	public Bestelbon(String naam, Adres adres) {
+	public Bestelbon(String naam, String straat, String huisNr, String gemeente, int postcode) {
 		this.naam = naam;
-		this.adres = adres;
+		this.straat = straat;
+		this.huisNr = huisNr;
+		this.gemeente = gemeente;
+		this.postcode = postcode;
 	}
 
-	public Bestelbon(long id, String naam, Adres adres) {
-		this(naam, adres);
+	public Bestelbon(long id, String naam, String straat, String huisNr, String gemeente, int postcode) {
+		this(naam, straat, huisNr, gemeente, postcode);
 		this.id = id;
 	}
 
@@ -61,12 +76,36 @@ public class Bestelbon implements Serializable {
 		this.naam = naam;
 	}
 
-	public Adres getAdres() {
-		return adres;
+	public String getStraat() {
+		return straat;
 	}
 
-	public void setAdres(Adres adres) {
-		this.adres = adres;
+	public void setStraat(String straat) {
+		this.straat = straat;
+	}
+
+	public String getHuisNr() {
+		return huisNr;
+	}
+
+	public void setHuisNr(String huisNr) {
+		this.huisNr = huisNr;
+	}
+
+	public String getGemeente() {
+		return gemeente;
+	}
+
+	public void setGemeente(String gemeente) {
+		this.gemeente = gemeente;
+	}
+
+	public int getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(int postcode) {
+		this.postcode = postcode;
 	}
 
 }

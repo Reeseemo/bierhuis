@@ -24,6 +24,10 @@ nav ul li a {
 	text-decoration: underline;
 }
 
+table {
+	margin-bottom: 1em;
+}
+
 #logoutbutton {
 	background: none;
 	border: none;

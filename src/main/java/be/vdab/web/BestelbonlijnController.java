@@ -4,11 +4,15 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import be.vdab.entities.Bestelbon;
 import be.vdab.entities.Bestelbonlijn;
 import be.vdab.services.BestelbonlijnService;
 
@@ -35,6 +39,16 @@ public class BestelbonlijnController {
 		bestelbonlijnService.add(bestelbonlijn);
 		ModelAndView model = new ModelAndView(VIEW, "mandje", bestelbonlijnService.getBestelbonlijnen());
 		return model;
+	}
+	
+	@InitBinder("bestelbon")
+	void initBinderFiliaal(WebDataBinder binder) {
+		binder.initDirectFieldAccess();
+	}
+
+	@ModelAttribute("bestelbon")
+	public Bestelbon getBestelbonlijnObject() {
+		return new Bestelbon();
 	}
 
 }
